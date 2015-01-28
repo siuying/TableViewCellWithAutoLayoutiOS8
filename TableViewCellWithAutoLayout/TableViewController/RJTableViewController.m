@@ -187,7 +187,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
     // This is important so that we'll get the correct height for different table view widths, since our cell's
     // height depends on its width due to the multi-line UILabel word wrapping. Don't need to do this above in
     // -[tableView:cellForRowAtIndexPath:] because it happens automatically when the cell is used in the table view.
-    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), 99999.0f);
     // NOTE: if you are displaying a section index (e.g. alphabet along the right side of the table view), or
     // if you are using a grouped table view style where cells have insets to the edges of the table view,
     // you'll need to adjust the cell.bounds.size.width to be smaller than the full width of the table view we just
