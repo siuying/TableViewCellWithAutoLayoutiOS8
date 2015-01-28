@@ -54,12 +54,18 @@
         [self.bodyLabel setTextAlignment:NSTextAlignmentLeft];
         [self.bodyLabel setTextColor:[UIColor darkGrayColor]];
         self.bodyLabel.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.1];
-        
+
+        self.okButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.okButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.okButton setTitle:@"OK" forState:UIControlStateNormal];
+        [self.okButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];;
+
         self.contentView.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.1];
         
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.bodyLabel];
-        
+        [self.contentView addSubview:self.okButton];
+
         [self updateFonts];
     }
     
@@ -93,7 +99,15 @@
         }];
         [self.bodyLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
         [self.bodyLabel autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
-        [self.bodyLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
+        [self.bodyLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.okButton];
+
+        [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
+            [self.okButton autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
+        }];
+        [self.okButton autoSetDimension:ALDimensionHeight toSize:100];
+        [self.okButton autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+        [self.okButton autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
+        [self.okButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
         
         self.didSetupConstraints = YES;
     }
