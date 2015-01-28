@@ -43,7 +43,7 @@
     if (self) {
         self.titleLabel = [UILabel newAutoLayoutView];
         [self.titleLabel setLineBreakMode:NSLineBreakByTruncatingTail];
-        [self.titleLabel setNumberOfLines:1];
+        [self.titleLabel setNumberOfLines:2];
         [self.titleLabel setTextAlignment:NSTextAlignmentLeft];
         [self.titleLabel setTextColor:[UIColor blackColor]];
         self.titleLabel.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.1];
@@ -76,7 +76,7 @@
         
         [UIView autoSetPriority:UILayoutPriorityRequired forConstraints:^{
             [self.titleLabel autoSetContentCompressionResistancePriorityForAxis:ALAxisVertical];
-        }];
+        }];        
         [self.titleLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
         [self.titleLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
         [self.titleLabel autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];

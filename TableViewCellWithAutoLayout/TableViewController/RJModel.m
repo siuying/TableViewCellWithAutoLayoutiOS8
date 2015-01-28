@@ -50,7 +50,7 @@
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:[fontFamilies count]];
     
     for ( NSString *familyName in fontFamilies ) {
-        NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:familyName, @"title",
+        NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat: @"%@ %@ %@", familyName, familyName, familyName], @"title",
                                     [self randomLorumIpsum], @"body",
                                     @"", @"element2",
                                     @"", @"element3",
