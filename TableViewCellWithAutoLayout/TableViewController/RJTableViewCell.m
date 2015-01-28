@@ -100,12 +100,15 @@
         [self.bodyLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
         [self.bodyLabel autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
 
-        [self.okButton autoSetDimension:ALDimensionHeight toSize:100];
         [self.okButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.bodyLabel withOffset:kLabelVerticalInsets];
         [self.okButton autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
         [self.okButton autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
         [self.okButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
-
+        
+        [UIView autoSetPriority:UILayoutPriorityDefaultHigh forConstraints:^{
+            [self.okButton autoSetDimension:ALDimensionHeight toSize:100];
+        }];
+        
         self.didSetupConstraints = YES;
     }
     
